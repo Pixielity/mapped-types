@@ -4,9 +4,9 @@ import {
   inheritPropertyInitializers,
   inheritTransformationMetadata,
   applyValidateIfDefinedDecorator,
-} from "../utils"
-import type { MappedType } from "../interfaces"
-import type { Type, RemoveFieldsWithType } from "../types"
+} from '../utils'
+import type { MappedType } from '../interfaces'
+import type { Type, RemoveFieldsWithType } from '../types'
 
 /**
  * @function PartialType
@@ -73,14 +73,16 @@ export function PartialType<T>(
   // Apply IsOptional or ValidateIf decorators to all properties with validation rules
   if (propertyKeys) {
     propertyKeys.forEach((key) => {
-      options.skipNullProperties === false
-        ? applyValidateIfDefinedDecorator(PartialClassType, key)
-        : applyIsOptionalDecorator(PartialClassType, key)
+      if (options.skipNullProperties === false) {
+        applyValidateIfDefinedDecorator(PartialClassType, key)
+      } else {
+        applyIsOptionalDecorator(PartialClassType, key)
+      }
     })
   }
 
   // Set the name of the class to reflect that it's a partial version of the source class
-  Object.defineProperty(PartialClassType, "name", {
+  Object.defineProperty(PartialClassType, 'name', {
     value: `Partial${classRef.name}`,
   })
 

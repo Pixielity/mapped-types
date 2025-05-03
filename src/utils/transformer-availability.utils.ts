@@ -17,7 +17,9 @@
 export function isClassTransformerAvailable() {
   try {
     // Attempt to require class-transformer
-    require("class-transformer")
+    // Using require for dynamic runtime checks is acceptable here
+    // as we're checking for package availability
+    require('class-transformer')
     return true
   } catch {
     // Return false if class-transformer is not available

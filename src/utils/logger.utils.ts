@@ -1,4 +1,4 @@
-import { Logger } from "../logger"
+import { Logger } from '../logger'
 
 /**
  * @description Centralized logger instance for the MappedTypes module.
@@ -18,4 +18,4 @@ import { Logger } from "../logger"
  * }
  * ```
  */
-export const logger = new Logger("MappedTypes")
+export const logger = new Logger('MappedTypes')

@@ -25,23 +25,23 @@ We use GitHub to host code, to track issues and feature requests, as well as acc
 
 We use Jest for testing. Run the tests with:
 
-\`\`\`bash
+```bash
 npm test
-\`\`\`
+```
 
 ### Coding Style
 
 We use ESLint and Prettier to enforce a consistent coding style. Run the linter with:
 
-\`\`\`bash
+```bash
 npm run lint
-\`\`\`
+```
 
 And format your code with:
 
-\`\`\`bash
+```bash
 npm run format
-\`\`\`
+```
 
 ## License
 

@@ -1,5 +1,5 @@
 {
-  "name": "@pixielity/mapped-types",
+  "name": "@yourusername/mapped-types",
   "version": "0.1.0",
   "description": "A utility library for creating mapped types in TypeScript with support for class-validator and class-transformer metadata inheritance",
   "main": "dist/index.js",
@@ -8,8 +8,7 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/index.mjs"
     }
   },
   "scripts": {
@@ -27,11 +26,12 @@
     "version": "npm run format && git add -A",
     "postversion": "git push && git push --tags",
     "changeset": "changeset",
-    "release": "npm run build && changeset publish"
+    "release": "npm run build && changeset publish",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pixielity/mapped-types.git"
+    "url": "git+https://github.com/yourusername/mapped-types.git"
   },
   "keywords": [
     "typescript",
@@ -45,9 +45,9 @@
   "author": "Your Name <your.email@example.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pixielity/mapped-types/issues"
+    "url": "https://github.com/yourusername/mapped-types/issues"
   },
-  "homepage": "https://github.com/pixielity/mapped-types#readme",
+  "homepage": "https://github.com/yourusername/mapped-types#readme",
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^17.7.1",
@@ -59,6 +59,8 @@
     "@typescript-eslint/parser": "^5.57.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.38.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -96,5 +98,10 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

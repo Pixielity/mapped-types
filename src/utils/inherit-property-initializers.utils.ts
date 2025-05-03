@@ -1,4 +1,4 @@
-import type { Type } from "../types"
+import type { Type } from '../types'
 
 /**
  * @function inheritPropertyInitializers
@@ -41,7 +41,8 @@ export function inheritPropertyInitializers(
       // Only include properties that are defined in the source and undefined in the target
       .filter(
         (propertyName) =>
-          typeof tempInstance[propertyName] !== "undefined" && typeof target[propertyName] === "undefined",
+          typeof tempInstance[propertyName] !== 'undefined' &&
+          typeof target[propertyName] === 'undefined',
       )
       // Only include properties that should be inherited according to the predicate
       .filter((propertyName) => isPropertyInherited(propertyName))

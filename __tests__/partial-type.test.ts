@@ -1,8 +1,8 @@
-import "reflect-metadata"
-import { IsString, IsEmail, validate } from "class-validator"
-import { PartialType } from "../helpers/partial-type.helper"
+import 'reflect-metadata'
+import { IsString, IsEmail, validate } from 'class-validator'
+import { PartialType } from '../src/helpers/partial-type.helper'
 
-describe("PartialType", () => {
+describe('PartialType', () => {
   class UserDto {
     @IsString()
     name: string
@@ -11,28 +11,28 @@ describe("PartialType", () => {
     email: string
 
     constructor() {
-      this.name = "Default Name"
-      this.email = "default@example.com"
+      this.name = 'Default Name'
+      this.email = 'default@example.com'
     }
   }
 
   class UpdateUserDto extends PartialType(UserDto) {}
 
-  it("should create a class with the same properties", () => {
+  it('should create a class with the same properties', () => {
     const updateUserDto = new UpdateUserDto()
 
-    expect(updateUserDto).toHaveProperty("name")
-    expect(updateUserDto).toHaveProperty("email")
+    expect(updateUserDto).toHaveProperty('name')
+    expect(updateUserDto).toHaveProperty('email')
   })
 
-  it("should inherit property initializers", () => {
+  it('should inherit property initializers', () => {
     const updateUserDto = new UpdateUserDto()
 
-    expect(updateUserDto.name).toBe("Default Name")
-    expect(updateUserDto.email).toBe("default@example.com")
+    expect(updateUserDto.name).toBe('Default Name')
+    expect(updateUserDto.email).toBe('default@example.com')
   })
 
-  it("should allow undefined values for properties", async () => {
+  it('should allow undefined values for properties', async () => {
     const updateUserDto = new UpdateUserDto()
     updateUserDto.name = undefined
     updateUserDto.email = undefined
@@ -42,19 +42,19 @@ describe("PartialType", () => {
     expect(errors.length).toBe(0)
   })
 
-  it("should validate defined properties", async () => {
+  it('should validate defined properties', async () => {
     const updateUserDto = new UpdateUserDto()
     updateUserDto.name = 123 as any // Invalid name
-    updateUserDto.email = "invalid-email" // Invalid email
+    updateUserDto.email = 'invalid-email' // Invalid email
 
     const errors = await validate(updateUserDto)
 
     expect(errors.length).toBe(2)
-    expect(errors[0].property).toBe("name")
-    expect(errors[1].property).toBe("email")
+    expect(errors[0].property).toBe('name')
+    expect(errors[1].property).toBe('email')
   })
 
-  it("should validate with skipNullProperties=false", async () => {
+  it('should validate with skipNullProperties=false', async () => {
     class StrictUpdateUserDto extends PartialType(UserDto, { skipNullProperties: false }) {}
 
     const updateUserDto = new StrictUpdateUserDto()
@@ -66,6 +66,6 @@ describe("PartialType", () => {
     // With skipNullProperties=false, undefined values are still allowed,
     // but null values are validated
     expect(errors.length).toBe(1)
-    expect(errors[0].property).toBe("email")
+    expect(errors[0].property).toBe('email')
   })
 })

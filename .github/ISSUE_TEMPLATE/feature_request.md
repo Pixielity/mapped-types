@@ -18,9 +18,9 @@ A clear and concise description of any alternative solutions or features you've 
 **Example code**
 If applicable, add an example of how you would like the API to look:
 
-\`\`\`typescript
+```typescript
 // Your code here
-\`\`\`
+```
 
 **Additional context**
 Add any other context or screenshots about the feature request here.

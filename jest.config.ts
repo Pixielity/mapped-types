@@ -1,30 +1,30 @@
-import type { Config } from "jest"
+import type { Config } from 'jest'
 
 const config: Config = {
-  preset: "ts-jest",
-  testEnvironment: "node",
-  testRegex: ".*\\.test\\.ts$",
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  testRegex: '.*\\.test\\.ts$',
   collectCoverageFrom: [
-    "**/*.ts",
-    "!**/node_modules/**",
-    "!**/dist/**",
-    "!**/coverage/**",
-    "!jest.config.ts",
-    "!tsup.config.ts",
+    '**/*.ts',
+    '!**/node_modules/**',
+    '!**/dist/**',
+    '!**/coverage/**',
+    '!jest.config.ts',
+    '!tsup.config.ts',
   ],
-  coverageDirectory: "./coverage",
+  coverageDirectory: './coverage',
   transform: {
-    "^.+\\.ts$": [
-      "ts-jest",
+    '^.+\\.ts$': [
+      'ts-jest',
       {
-        tsconfig: "tsconfig.json",
+        tsconfig: 'tsconfig.json',
       },
     ],
   },
   moduleNameMapper: {
-    "^@/(.*)$": "<rootDir>/$1",
+    '^@/(.*)$': '<rootDir>/$1',
   },
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 }
 
 export default config

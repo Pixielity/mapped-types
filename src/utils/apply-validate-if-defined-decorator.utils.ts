@@ -25,7 +25,7 @@ export function applyValidateIfDefinedDecorator(targetClass: Function, propertyK
   }
 
   // Import class-validator dynamically
-  const classValidator: typeof import("class-validator") = require("class-validator")
+  const classValidator: typeof import('class-validator') = require('class-validator')
 
   // Create the ValidateIf decorator factory that only validates if the value is not undefined
   const decoratorFactory = classValidator.ValidateIf((_, value) => value !== undefined)
@@ -46,7 +46,7 @@ export function applyValidateIfDefinedDecorator(targetClass: Function, propertyK
 function isClassValidatorAvailable() {
   try {
     // Attempt to require class-validator
-    require("class-validator")
+    require('class-validator')
     return true
   } catch {
     // Return false if class-validator is not available

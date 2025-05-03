@@ -9,15 +9,15 @@ A utility library for creating mapped types in TypeScript with support for class
 
 ## Installation
 
-\`\`\`bash
+```bash
 npm install @pixielity/mapped-types
-\`\`\`
+```
 
 For validation and transformation features, install the optional peer dependencies:
 
-\`\`\`bash
+```bash
 npm install class-validator class-transformer reflect-metadata
-\`\`\`
+```
 
 ## Features
 
@@ -34,7 +34,7 @@ npm install class-validator class-transformer reflect-metadata
 
 Creates a new type by picking a set of properties from an existing class.
 
-\`\`\`typescript
+```typescript
 import { PickType } from '@pixielity/mapped-types';
 import { IsString, IsEmail } from 'class-validator';
 
@@ -52,13 +52,13 @@ class UserDto {
 // CreateUserDto will have name, email, and password properties
 // with the same validation rules as UserDto
 class CreateUserDto extends PickType(UserDto, ['name', 'email', 'password']) {}
-\`\`\`
+```
 
 ### OmitType
 
 Creates a new type by omitting a set of properties from an existing class.
 
-\`\`\`typescript
+```typescript
 import { OmitType } from '@pixielity/mapped-types';
 import { IsString, IsEmail } from 'class-validator';
 
@@ -76,13 +76,13 @@ class UserDto {
 // UserResponseDto will have name and email properties, but not password
 // with the same validation rules as UserDto
 class UserResponseDto extends OmitType(UserDto, ['password']) {}
-\`\`\`
+```
 
 ### PartialType
 
 Creates a new type by making all properties of an existing class optional.
 
-\`\`\`typescript
+```typescript
 import { PartialType } from '@pixielity/mapped-types';
 import { IsString, IsEmail } from 'class-validator';
 
@@ -98,13 +98,13 @@ class UserDto {
 // with the same validation rules as UserDto, but they'll only be
 // applied if the properties are defined
 class UpdateUserDto extends PartialType(UserDto) {}
-\`\`\`
+```
 
 ### IntersectionType
 
 Creates a new type by intersecting multiple existing classes.
 
-\`\`\`typescript
+```typescript
 import { IntersectionType } from '@pixielity/mapped-types';
 import { IsString } from 'class-validator';
 
@@ -121,7 +121,7 @@ class AddressDto {
 // UserWithAddressDto will have both name and street properties
 // with the same validation rules as the original classes
 class UserWithAddressDto extends IntersectionType(UserDto, AddressDto) {}
-\`\`\`
+```
 
 ## API Reference
 
@@ -129,32 +129,32 @@ For detailed API documentation, please visit our [API Reference](https://pixieli
 
 ### PickType
 
-\`\`\`typescript
+```typescript
 function PickType<T, K extends keyof T>(classRef: Type<T>, keys: readonly K[]): MappedType<RemoveFieldsWithType<Pick<T, K>, Function>>
-\`\`\`
+```
 
 ### OmitType
 
-\`\`\`typescript
+```typescript
 function OmitType<T, K extends keyof T>(classRef: Type<T>, keys: readonly K[]): MappedType<RemoveFieldsWithType<Omit<T, K>, Function>>
-\`\`\`
+```
 
 ### PartialType
 
-\`\`\`typescript
+```typescript
 function PartialType<T>(
   classRef: Type<T>,
   options: {
     skipNullProperties?: boolean
   } = {}
 ): MappedType<RemoveFieldsWithType<Partial<T>, Function>>
-\`\`\`
+```
 
 ### IntersectionType
 
-\`\`\`typescript
+```typescript
 function IntersectionType<T extends Type[]>(...classRefs: T): MappedType<RemoveFieldsWithType<UnionToIntersection<ClassRefsToConstructors<T>[number]>, Function>>
-\`\`\`
+```
 
 ## Contributing
 

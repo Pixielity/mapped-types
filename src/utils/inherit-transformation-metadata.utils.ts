@@ -1,5 +1,5 @@
-import { logger } from "./logger.utils"
-import type { Type, TransformMetadataKey } from "../types"
+import { logger } from './logger.utils'
+import type { Type, TransformMetadataKey } from '../types'
 
 /**
  * @function inheritTransformationMetadata
@@ -43,19 +43,27 @@ export function inheritTransformationMetadata(
   try {
     // Define the metadata keys to inherit
     const transformMetadataKeys: TransformMetadataKey[] = [
-      "_typeMetadatas",
-      "_exposeMetadatas",
-      "_excludeMetadatas",
-      "_transformMetadatas",
+      '_typeMetadatas',
+      '_exposeMetadatas',
+      '_excludeMetadatas',
+      '_transformMetadatas',
     ]
 
     // Inherit each type of metadata
     transformMetadataKeys.forEach((key) =>
-      inheritTransformerMetadata(key, parentClass, targetClass, isPropertyInherited, stackDecorators),
+      inheritTransformerMetadata(
+        key,
+        parentClass,
+        targetClass,
+        isPropertyInherited,
+        stackDecorators,
+      ),
     )
   } catch (err: Error | any) {
     // Log errors that occur during the inheritance process
-    logger.error(`Transformer ("class-transformer") metadata cannot be inherited for "${parentClass.name}" class.`)
+    logger.error(
+      `Transformer ("class-transformer") metadata cannot be inherited for "${parentClass.name}" class.`,
+    )
     logger.error(err)
   }
 }
@@ -85,11 +93,11 @@ function inheritTransformerMetadata(
   try {
     // Try to import class-transformer from the cjs path (for newer versions)
     /** "class-transformer" >= v0.3.x */
-    classTransformer = require("class-transformer/cjs/storage")
+    classTransformer = require('class-transformer/cjs/storage')
   } catch {
     // Fall back to the older import path
     /** "class-transformer" <= v0.3.x */
-    classTransformer = require("class-transformer/storage")
+    classTransformer = require('class-transformer/storage')
   }
 
   // Get the metadata storage from class-transformer
@@ -175,7 +183,7 @@ function inheritTransformerMetadata(
 function isClassTransformerAvailable() {
   try {
     // Attempt to require class-transformer
-    require("class-transformer")
+    require('class-transformer')
     return true
   } catch {
     // Return false if class-transformer is not available
