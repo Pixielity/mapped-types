@@ -18,7 +18,6 @@ import type { Type, RemoveFieldsWithType } from '../types'
  * @returns A new class with only the picked properties
  *
  * @example
- * ```typescript
  * class UserDto {
  *   @IsString()
  *   name: string;
@@ -33,7 +32,6 @@ import type { Type, RemoveFieldsWithType } from '../types'
  * // CreateUserDto will have name, email, and password properties
  * // with the same validation rules as UserDto
  * class CreateUserDto extends PickType(UserDto, ['name', 'email', 'password']) {}
- * ```
  *
  * @publicApi
  */

@@ -6,13 +6,11 @@
  * @returns {boolean} True if class-transformer is available, false otherwise
  *
  * @example
- * ```typescript
  * if (isClassTransformerAvailable()) {
  *   // Use class-transformer features
  * } else {
  *   // Fallback behavior
  * }
- * ```
  */
 export function isClassTransformerAvailable() {
   try {

@@ -8,7 +8,6 @@
  * @param propertyKey - The name of the property to conditionally validate
  *
  * @example
- * ```typescript
  * class UserDto {
  *   @IsString()
  *   name: string;
@@ -16,7 +15,6 @@
  *
  * // Only validate the name property if it's defined
  * applyValidateIfDefinedDecorator(UserDto, 'name');
- * ```
  */
 export function applyValidateIfDefinedDecorator(targetClass: Function, propertyKey: string) {
   // Check if class-validator is available in the project

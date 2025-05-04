@@ -12,7 +12,6 @@ import type { Type } from '../types'
  *                             (defaults to inheriting all properties)
  *
  * @example
- * ```typescript
  * class UserDto {
  *   name: string = 'Default Name';
  *   isActive: boolean = true;
@@ -21,7 +20,6 @@ import type { Type } from '../types'
  * const target = {};
  * inheritPropertyInitializers(target, UserDto);
  * // target is now { name: 'Default Name', isActive: true }
- * ```
  */
 export function inheritPropertyInitializers(
   target: Record<string, any>,

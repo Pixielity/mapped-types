@@ -13,7 +13,6 @@ import type { Type, TransformMetadataKey } from '../types'
  * @param stackDecorators - Whether to stack decorators or replace them (default: true)
  *
  * @example
- * ```typescript
  * class UserDto {
  *   @Expose()
  *   name: string;
@@ -27,7 +26,6 @@ import type { Type, TransformMetadataKey } from '../types'
  * }
  *
  * inheritTransformationMetadata(UserDto, CreateUserDto);
- * ```
  */
 export function inheritTransformationMetadata(
   parentClass: Type<any>,

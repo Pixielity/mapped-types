@@ -8,7 +8,6 @@
  * @param propertyKey - The name of the property to make optional
  *
  * @example
- * ```typescript
  * class UserDto {
  *   @IsString()
  *   name: string;
@@ -16,7 +15,6 @@
  *
  * // Make the name property optional
  * applyIsOptionalDecorator(UserDto, 'name');
- * ```
  */
 export function applyIsOptionalDecorator(targetClass: Function, propertyKey: string) {
   // Check if class-validator is available in the project

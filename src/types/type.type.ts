@@ -7,11 +7,9 @@
  * @template T The type of the instance that will be created (defaults to any)
  *
  * @example
- * ```typescript
  * class MyClass {}
  * const myClassType: Type<MyClass> = MyClass;
  * const instance = new myClassType();
- * ```
  */
 export interface Type<T = any> extends Function {
   /**

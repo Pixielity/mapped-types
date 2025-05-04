@@ -1,9 +1,4 @@
-/**
- * @module utils
- * @description This module exports utility functions for working with mapped types.
- * These utilities help with applying decorators, inheriting metadata, and checking
- * for the availability of dependencies.
- */
+
 
 export * from './logger.utils'
 export * from './validator-availability.utils'

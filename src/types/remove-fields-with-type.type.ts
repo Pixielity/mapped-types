@@ -8,7 +8,6 @@
  * @template Type The type to match against property values
  *
  * @example
- * ```typescript
  * interface Example {
  *   name: string;
  *   age: number;
@@ -18,7 +17,6 @@
  *
  * // Will be "handler"
  * type FunctionKeys = KeysWithType<Example, Function>;
- * ```
  */
 type KeysWithType<T, Type> = {
   [K in keyof T]: T[K] extends Type ? K : never
@@ -33,7 +31,6 @@ type KeysWithType<T, Type> = {
  * @template Type The type of fields to remove
  *
  * @example
- * ```typescript
  * interface Example {
  *   name: string;
  *   age: number;
@@ -43,6 +40,5 @@ type KeysWithType<T, Type> = {
  *
  * // Will be { name: string; age: number; isActive: boolean; }
  * type WithoutFunctions = RemoveFieldsWithType<Example, Function>;
- * ```
  */
 export type RemoveFieldsWithType<T, Type> = Exclude<T, KeysWithType<T, Type>>

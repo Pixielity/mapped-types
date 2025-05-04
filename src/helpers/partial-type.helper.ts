@@ -24,7 +24,6 @@ import type { Type, RemoveFieldsWithType } from '../types'
  * @returns A new class with all properties made optional
  *
  * @example
- * ```typescript
  * class UserDto {
  *   @IsString()
  *   name: string;
@@ -37,7 +36,6 @@ import type { Type, RemoveFieldsWithType } from '../types'
  * // with the same validation rules as UserDto, but they'll only be
  * // applied if the properties are defined
  * class UpdateUserDto extends PartialType(UserDto) {}
- * ```
  *
  * @publicApi
  */

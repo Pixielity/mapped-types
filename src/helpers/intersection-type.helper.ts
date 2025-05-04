@@ -14,11 +14,9 @@ import type { Type, RemoveFieldsWithType } from '../types'
  * @template U The union type to convert to an intersection
  *
  * @example
- * ```typescript
  * type Union = { a: string } | { b: number };
  * // Becomes { a: string } & { b: number }
  * type Intersection = UnionToIntersection<Union>;
- * ```
  *
  * @see https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type
  */
@@ -34,11 +32,9 @@ type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
  * @template T The array of class references to convert
  *
  * @example
- * ```typescript
  * type ClassRefs = [Type<Foo>, Type<Bar>];
  * // Becomes [Foo, Bar]
  * type Constructors = ClassRefsToConstructors<ClassRefs>;
- * ```
  */
 type ClassRefsToConstructors<T extends Type[]> = {
   [U in keyof T]: T[U] extends Type<infer V> ? V : never
@@ -54,13 +50,11 @@ type ClassRefsToConstructors<T extends Type[]> = {
  * @template T The array of class references to create an intersection from
  *
  * @example
- * ```typescript
  * class Foo { a: string; }
  * class Bar { b: number; }
  *
  * // Becomes MappedType<Foo & Bar>
  * type FooBar = Intersection<[Type<Foo>, Type<Bar>]>;
- * ```
  */
 type Intersection<T extends Type[]> = MappedType<
   RemoveFieldsWithType<UnionToIntersection<ClassRefsToConstructors<T>[number]>, Function>
@@ -77,7 +71,6 @@ type Intersection<T extends Type[]> = MappedType<
  * @returns A new class with all properties from all input classes
  *
  * @example
- * ```typescript
  * class UserDto {
  *   @IsString()
  *   name: string;
@@ -91,7 +84,6 @@ type Intersection<T extends Type[]> = MappedType<
  * // UserWithAddressDto will have both name and street properties
  * // with the same validation rules as the original classes
  * class UserWithAddressDto extends IntersectionType(UserDto, AddressDto) {}
- * ```
  *
  * @publicApi
  */

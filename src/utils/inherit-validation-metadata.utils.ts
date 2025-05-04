@@ -1,6 +1,4 @@
-import 'reflect-metadata'
-
-import type { Type } from '../types'
+import 'reflect-metadata'import type { Type } from '../types'
 import { logger } from './logger.utils'
 
 /**
@@ -17,7 +15,6 @@ import { logger } from './logger.utils'
  *                                or undefined if class-validator is not available or an error occurred
  *
  * @example
- * ```typescript
  * class UserDto {
  *   @IsString()
  *   name: string;
@@ -28,7 +25,6 @@ import { logger } from './logger.utils'
  * }
  *
  * inheritValidationMetadata(UserDto, CreateUserDto);
- * ```
  */
 export function inheritValidationMetadata(
   parentClass: Type<any>,

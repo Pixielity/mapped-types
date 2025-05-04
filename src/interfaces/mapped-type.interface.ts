@@ -10,7 +10,6 @@ import type { Type } from '../types'
  * @template T The type that the mapped type represents
  *
  * @example
- * ```typescript
  * class UserDto {
  *   name: string;
  *   email: string;
@@ -19,7 +18,6 @@ import type { Type } from '../types'
  *
  * // CreateUserDto is a MappedType<UserDto>
  * const CreateUserDto = PickType(UserDto, ['name', 'email', 'password']);
- * ```
  *
  * @publicApi
  */

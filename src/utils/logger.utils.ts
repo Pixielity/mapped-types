@@ -6,7 +6,6 @@ import { Logger } from '../logger'
  * This logger provides consistent formatting and context for all log messages.
  *
  * @example
- * ```typescript
  * // Log an error message
  * logger.error('An error occurred while processing metadata');
  *
@@ -16,6 +15,5 @@ import { Logger } from '../logger'
  * } catch (err) {
  *   logger.error('Failed to process metadata', err);
  * }
- * ```
  */
 export const logger = new Logger('MappedTypes')

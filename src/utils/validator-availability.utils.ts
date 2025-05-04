@@ -6,13 +6,11 @@
  * @returns {boolean} True if class-validator is available, false otherwise
  *
  * @example
- * ```typescript
  * if (isClassValidatorAvailable()) {
  *   // Use class-validator features
  * } else {
  *   // Fallback behavior
  * }
- * ```
  */
 export function isClassValidatorAvailable() {
   try {
