@@ -71,6 +71,7 @@
     "prettier": "^3.5.3",
     "reflect-metadata": "^0.2.2",
     "ts-jest": "^29.3.2",
+    "ts-node": "^10.9.2",
     "tsup": "^8.4.0",
     "typedoc": "^0.28.3",
     "typescript": "^5.8.3"
