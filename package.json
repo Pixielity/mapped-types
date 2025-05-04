@@ -1,6 +1,6 @@
 {
   "name": "@pixielity/mapped-types",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "A utility library for creating mapped types in TypeScript with support for class-validator and class-transformer metadata inheritance",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
