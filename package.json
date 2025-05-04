@@ -74,7 +74,8 @@
     "ts-node": "^10.9.2",
     "tsup": "^8.4.0",
     "typedoc": "^0.28.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.31.1"
   },
   "peerDependencies": {
     "class-transformer": ">=0.2.0",
@@ -105,8 +106,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "dependencies": {
-    "typescript-eslint": "^8.31.1"
   }
 }
