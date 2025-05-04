@@ -26,6 +26,7 @@
     "version": "npm run format && git add -A",
     "postversion": "git push && git push --tags",
     "changeset": "changeset",
+    "version-packages": "changeset version && git add . && git commit -m \"Version Packages\"",
     "release": "npm run build && changeset publish",
     "commit": "git-cz"
   },
