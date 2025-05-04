@@ -7,18 +7,22 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Add explicit permissions for the publish job
+
     permissions:
       contents: read
-      id-token: write # Needed for npm provenance
+      id-token: write # ✅ Needed for npm provenance
+
     steps:
       - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "18.x"
+          registry-url: "https://registry.npmjs.org"
+
       - run: npm ci
       - run: npm run build
+
       - run: npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

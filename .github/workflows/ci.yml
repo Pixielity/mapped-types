@@ -15,11 +15,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: 'npm'
+
       - run: npm ci
       - run: npm run build
       - run: npm test
@@ -29,25 +31,30 @@ jobs:
     needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    # Add explicit permissions for the release job
+
+    # 👇 Give explicit permissions
     permissions:
       contents: write
       pull-requests: write
+
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
-          registry-url: "https://registry.npmjs.org"
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
       - run: npm ci
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
           publish: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}         # ✅ Use your Personal Access Token
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
