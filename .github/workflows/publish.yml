@@ -25,4 +25,5 @@ jobs:
 
       - run: npm publish --access public --provenance
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # ✅ Required for PRs
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # ✅ Required for npm publish
