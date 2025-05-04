@@ -26,7 +26,6 @@ import type { Type } from '../types'
 export function inheritPropertyInitializers(
   target: Record<string, any>,
   sourceClass: Type<any>,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   isPropertyInherited = (key: string) => true,
 ) {
   try {
