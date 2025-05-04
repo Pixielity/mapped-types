@@ -257,7 +257,11 @@ function PartialType(classRef, options = {}) {
   inheritTransformationMetadata(classRef, PartialClassType);
   if (propertyKeys) {
     propertyKeys.forEach((key) => {
-      options.skipNullProperties === false ? applyValidateIfDefinedDecorator(PartialClassType, key) : applyIsOptionalDecorator(PartialClassType, key);
+      if (options.skipNullProperties === false) {
+        applyValidateIfDefinedDecorator(PartialClassType, key);
+      } else {
+        applyIsOptionalDecorator(PartialClassType, key);
+      }
     });
   }
   Object.defineProperty(PartialClassType, "name", {
