@@ -22,6 +22,8 @@ export default defineConfig([
     rules: {
       // Disable rules that conflict with TypeScript features
       '@typescript-eslint/no-explicit-any': 'off',
+      'typescript-eslint/eslint-recommended': 'off',
+      '@typescript-eslint/eslint-recommended': 'off',
       '@typescript-eslint/no-namespace': 'off',
       '@typescript-eslint/explicit-function-return-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
