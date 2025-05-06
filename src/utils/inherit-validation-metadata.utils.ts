@@ -1,4 +1,5 @@
-import 'reflect-metadata'import type { Type } from '../types'
+import 'reflect-metadata'
+import type { Type } from '../types'
 import { logger } from './logger.utils'
 
 /**

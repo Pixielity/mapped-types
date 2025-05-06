@@ -1,0 +1,10 @@
+export { logger } from './logger.utils.js';
+export { isClassValidatorAvailable } from './validator-availability.utils.js';
+export { isClassTransformerAvailable } from './transformer-availability.utils.js';
+export { applyIsOptionalDecorator } from './apply-is-optional-decorator.utils.js';
+export { inheritValidationMetadata } from './inherit-validation-metadata.utils.js';
+export { inheritPropertyInitializers } from './inherit-property-initializers.utils.js';
+export { inheritTransformationMetadata } from './inherit-transformation-metadata.utils.js';
+export { applyValidateIfDefinedDecorator } from './apply-validate-if-defined-decorator.utils.js';
+import '../logger.js';
+import '../types/type.type.js';
